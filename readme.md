@@ -9,7 +9,7 @@ A webcam is used to track two markers on your controller.
 
 #### 1. download this repository
 ```commandline
-git clone https://REPO
+git clone https://github.com/treecaptcha/TiltR.git
 ```
 #### 2. Install python packages
 ```commandline
