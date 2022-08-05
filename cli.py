@@ -1,5 +1,4 @@
 import os
-import sys
 import time
 
 import registries
@@ -8,6 +7,7 @@ help: str = '''
 help - show this page
 list - refresh and show available controllers
 bind - bind to a controller
+angm - set max angle
 stop - shutdown whole process
 load - load configuration from save file
 save - save configuration to save file
@@ -47,18 +47,21 @@ def main(controller):
                 ine: str = saveFile.read()
                 saveFile.close()
                 controller.load(ine)
+            elif inpu.startswith("angm"):
+                registries.setAngle(int(inp("max angle (0-180): ")))
             elif inpu.startswith("help"):
                 print(help)
             else:
                 print(help)
 
     except:
+        print("unhandled exception, attempting to shut down ")
         controller.shutdown()
         registries.stop = True
         raise
 
 awaiting = False
-def inp(pro: str):
+def inp(pro: str) -> str:
     global awaiting
     awaiting = True
     a = input(pro)
@@ -74,7 +77,7 @@ def printControllers(control):
 def shutdown():
     while(True):
         if awaiting:
-            time.sleep(0.01) # if still in that state after 0.1 seconds
+            time.sleep(0.01) # if still in that state after 0.01 seconds
             if awaiting:
                 os._exit(0)
         time.sleep(0.01)

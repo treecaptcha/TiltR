@@ -10,10 +10,6 @@ import cv2
 import cli
 import registries
 
-# between 0 and 1
-max_angle = 90 / 180
-
-angle_multiplier = 1 / max_angle
 
 # id:[x, y]
 markerCords = {}
@@ -83,12 +79,12 @@ def main():
 
             angle = atan2(cor1[1] - cor2[1], cor1[0] - cor2[0]) / math.pi
 
-            if angle > max_angle:
-                angle = max_angle
-            elif angle < -max_angle:
-                angle = -max_angle
+            if angle > registries.max_angle:
+                angle = registries.max_angle
+            elif angle < -registries.max_angle:
+                angle = -registries.max_angle
 
-            angle = angle * angle_multiplier
+            angle = angle * registries.angle_multiplier
             cv2.putText(frame, "Angle: " + str(round(angle * 100)) + "%", (20, 20 + ind * 20), cv2.FONT_HERSHEY_SIMPLEX,
                         0.5, (0, 0, 0), 2)
 
