@@ -75,9 +75,12 @@ def printControllers(control):
 
 
 def shutdown():
-    while(True):
+    i = 0
+    while(i < 500):
         if awaiting:
-            time.sleep(0.01) # if still in that state after 0.01 seconds
+            i = i + 1;
             if awaiting:
                 os._exit(0)
         time.sleep(0.01)
+    print("over 5 seconds has been spent trying to shut down. Forcibly shutting down.")
+    os._exit(1)

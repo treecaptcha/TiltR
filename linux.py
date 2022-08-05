@@ -16,7 +16,7 @@ def register(id):
     real = currentDevices[id]
     virt = toVirt(real, len(currentDevices))
 
-    print("Bound real " + str(real.path) + " to virtual " + str(virt.device.path) + "\nUse " + str(virt.device.path) + "in game")
+    print("Bound real " + str(real.path) + " to virtual " + str(virt.device.path) + "\nUse " + str(virt.device.name) + " in game")
     registry.append([real, virt])
     return len(currentDevices) - 1
 
@@ -73,6 +73,8 @@ def load(text: str):
         try:
             real = evdev.InputDevice(a[0])
             virt = toVirt(real, len(currentDevices))
+            print("Bound real " + str(real.path) + " to virtual " + str(virt.device.path) + "\nUse " + str(
+                virt.device.name) + " in game")
             registry.append([real, virt])
             ret = len(currentDevices) - 1
             registries.register(ret, [int(a[1]), int(a[2])])
