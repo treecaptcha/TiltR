@@ -23,7 +23,7 @@ def main(controller):
             inpus = inpu.split(" ")
             if inpu.startswith("list"):
                 printControllers(controller)
-            elif inpu.startswith("bind") and len(inpus) == 1:
+            elif inpu.startswith("bind"):
                 try:
                     dev = int(inp("device # (starts at 0): "))
                     ar1 = int(inp("marker 1: "))
