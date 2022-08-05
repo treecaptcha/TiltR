@@ -16,11 +16,17 @@ git clone https://github.com/treecaptcha/TiltR.git
 pip3 install evdev
 pip3 install opencv-contrib-python
 ```
-#### 3. start the script
+note: this requires the python 3 version of pip, you may have to run `pip` instead of `pip3` on your distrubution.
+#### 3. enter the directory
+```commandline
+cd TiltR
+```
+#### 4. start the script
 ```commandline
 python3 main.py
 ```
-#### 4. use commands to configure
+note: this requires python 3, the command may be `python` and not `python3` on your distrubution.
+#### 5. use commands to configure
 ```commandline
 list - refresh and show available controllers
 bind - bind to a controller
