@@ -30,6 +30,7 @@ note: this requires python 3, you may have to run `python` instead of `python3` 
 ```
 list - refresh and show available controllers
 bind - bind to a controller
+angm - set max angle
 stop - shutdown whole process
 load - load configuration from save file
 save - save configuration to save file
