@@ -25,9 +25,9 @@ cd TiltR
 ```commandline
 python3 main.py
 ```
-note: this requires python 3, the command may be `python` and not `python3` on your distrubution.
+note: this requires python 3, you may have to run `python` instead of `python3` on your distrubution.
 #### 5. use commands to configure
-```commandline
+```
 list - refresh and show available controllers
 bind - bind to a controller
 stop - shutdown whole process
