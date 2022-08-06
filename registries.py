@@ -5,7 +5,7 @@ reg = []
 # all loops should poll this value
 stop = False
 
-max_angle = 90 / 180
+max_angle = 45 / 180
 
 angle_multiplier = 1 / max_angle
 
