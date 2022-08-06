@@ -1,6 +1,8 @@
 import os
 import time
 
+import controller as controller
+
 import registries
 
 help: str = '''
@@ -15,7 +17,7 @@ save - save configuration to save file
 
 
 # manages a cli
-def main(controller):
+def main(controller: controller):
     try:
         printControllers(controller)
         while(True):
@@ -74,7 +76,8 @@ def printControllers(control):
         print(str(s) + ": " + str(devs[s]))
 
 
-def shutdown():
+def shutdown(wait = 0):
+    time.sleep(wait)
     i = 0
     while(i < 500):
         if awaiting:

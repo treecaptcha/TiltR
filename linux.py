@@ -14,11 +14,11 @@ currentDevices = [evdev.InputDevice(path) for path in evdev.list_devices()]
 
 def register(id):
     real = currentDevices[id]
-    virt = toVirt(real, len(currentDevices))
+    virt = toVirt(real, len(registry))
 
     print("Bound real " + str(real.path) + " to virtual " + str(virt.device.path) + "\nUse " + str(virt.device.name) + " in game")
     registry.append([real, virt])
-    return len(currentDevices) - 1
+    return len(registry) - 1
 
 
 # value is between -1 and 1
@@ -72,11 +72,11 @@ def load(text: str):
         a: [str] = line.split(";")
         try:
             real = evdev.InputDevice(a[0])
-            virt = toVirt(real, len(currentDevices))
+            virt = toVirt(real, len(registry))
             print("Bound real " + str(real.path) + " to virtual " + str(virt.device.path) + "\nUse " + str(
                 virt.device.name) + " in game")
             registry.append([real, virt])
-            ret = len(currentDevices) - 1
+            ret = len(registry) - 1
             registries.register(ret, [int(a[1]), int(a[2])])
             print("loaded")
         except:

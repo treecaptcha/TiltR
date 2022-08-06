@@ -22,6 +22,8 @@ def signal_handler(sig, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 
+
+
 # id:[x, y]
 markerCords = {}
 print(platform.platform())
@@ -123,8 +125,10 @@ def main():
         print("unhandled exception, attempting to shut down ")
         controller.shutdown()
         registries.stop = True
-        traceback.print_exception(e)
-        cli.shutdown()
+        # I love python </3
+        threading.Thread(target=cli.shutdown, args=[0.5]).start()
+        raise e
+
 
 
 if __name__ == '__main__':
