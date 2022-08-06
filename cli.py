@@ -1,7 +1,8 @@
 import os
+import subprocess
+import sys
 import time
 
-import controller as controller
 
 import registries
 
@@ -17,7 +18,7 @@ save - save configuration to save file
 
 
 # manages a cli
-def main(controller: controller):
+def main(controller):
     try:
         printControllers(controller)
         while(True):
@@ -53,6 +54,15 @@ def main(controller: controller):
                 registries.setAngle(int(inp("max angle (0-180): ")))
             elif inpu.startswith("help"):
                 print(help)
+            elif inpu.startswith("dump"):
+                print(controller.dump())
+                print("Python " + sys.version + " for " + os.sy)
+                print(sys.path)
+                try:
+                    print("git: " + subprocess.check_output(['git', 'rev-parse', 'HEAD']).decode('ascii').strip())
+                except:
+                    # dunno what Windows does when it doesn't exist
+                    print("git: unknown")
             else:
                 print(help)
 

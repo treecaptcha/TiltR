@@ -86,3 +86,11 @@ def shutdown():
     for real, virt in registry:
         real.close()
         virt.close()
+
+
+def dump() -> str:
+    strag: str = ""
+    strag = strag + "registry: " + str(registry) + "\n"
+    strag = strag + "located controllers: " + str(currentDevices) + "\n"
+    strag = strag + "Controller provider built with evdev for linux"
+    return strag

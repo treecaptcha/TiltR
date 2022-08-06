@@ -10,8 +10,8 @@ max_angle = 45 / 180
 angle_multiplier = 1 / max_angle
 
 
-def register( id: int, markers: list):
-    reg.append([id, markers])
+def register(idx: int, markers: list):
+    reg.append([idx, markers])
 
 def setAngle(degrees):
     global max_angle, angle_multiplier
