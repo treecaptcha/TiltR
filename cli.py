@@ -11,6 +11,7 @@ help - show this page
 list - refresh and show available controllers
 bind - bind to a controller
 angm - set max angle
+dump - dump info
 stop - shutdown whole process
 load - load configuration from save file
 save - save configuration to save file
