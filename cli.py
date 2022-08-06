@@ -55,9 +55,11 @@ def main(controller):
             elif inpu.startswith("help"):
                 print(help)
             elif inpu.startswith("dump"):
+                print("----Start of from controller.dump()----")
                 print(controller.dump())
-                print("Python " + sys.version + " for " + os.sy)
-                print(sys.path)
+                print("----End of from controller.dump()----")
+                print("Python " + sys.version.replace("\n", "") + " for " + sys.platform)
+                print("Paths: " + str(sys.path))
                 try:
                     print("git: " + subprocess.check_output(['git', 'rev-parse', 'HEAD']).decode('ascii').strip())
                 except:
