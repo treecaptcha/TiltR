@@ -66,7 +66,7 @@ def save():
 def load(text: str):
     lines: [str] = text.split("\n")
     if not lines[0].startswith(saveFormat):
-        Exception("Version mismatch! got " + lines[0].replace("\n", "") + " expected " + saveFormat)
+        raise Exception("Version mismatch! got " + lines[0].replace("\n", "") + " expected " + saveFormat)
     lines.pop(0)
     for line in lines:
         a: [str] = line.split(";")
