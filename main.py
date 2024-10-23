@@ -47,8 +47,8 @@ def main():
         t1 = threading.Thread(target=cli.main, args=[controller])
         t1.start()
 
-        arucoDictionary = cv2.aruco.Dictionary_get(cv2.aruco.DICT_ARUCO_ORIGINAL)
-        arucoParameters = cv2.aruco.DetectorParameters_create()
+        arucoDictionary = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_ARUCO_ORIGINAL)
+        arucoParameters = cv2.aruco.DetectorParameters()
 
         breakType: str = None
 
